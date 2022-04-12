@@ -128,6 +128,9 @@ body {
   letter-spacing: 0.1em;
   /* color-light-xl */
   color: #FFFFFF;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 0 0 4px;
 }
 
 .header .nav-menu {
@@ -149,11 +152,11 @@ body {
   color: #CDCDCD;
 }
 
-.header .nav-menu .nav-item .nav-link .nav-link-current {
+.header .nav-menu .nav-item .nav-link:hover {
   color: #FAFAFA;
 }
 
-.header .nav-menu .nav-item .nav-link:hover {
+.header .nav-menu .nav-item .nav-link.active {
   color: #FAFAFA;
 }
 

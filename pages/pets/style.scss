@@ -174,7 +174,9 @@ h5{
             color: #292929;
             /* identical to box height */
             position: relative;
-            letter-spacing: 0.1em;           
+            letter-spacing: 0.1em; 
+            box-sizing: border-box;
+            padding: 0px 0px 0px 4px;          
         }
     }
     .nav-menu{
@@ -192,6 +194,7 @@ h5{
             text-decoration: none;
             color: $color-dark-1;
             @extend %text-main;
+            
             &:hover{
                 color: $color-button-text;
             }
@@ -200,6 +203,9 @@ h5{
                 span{
                     background: $color-button-hover;
                 }
+            }
+            .nav-link.active{
+                color: $color-button-text;
             }
             span {
                 display: block;

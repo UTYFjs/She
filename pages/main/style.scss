@@ -116,10 +116,10 @@ body{
             /* identical to box height */
             position: relative;
             letter-spacing: 0.1em;
-
             /* color-light-xl */
-
             color: #FFFFFF;
+            box-sizing: border-box;
+            padding: 0 0 0 4px;
         }
     }
     .nav-menu{
@@ -132,14 +132,15 @@ body{
             .nav-link{
             text-decoration: none;
             color: $color-menu-text;
-            .nav-link-current {
-                color: $color-menu-text-hover;
-            }
             @extend %text-main;
             &:hover{
                 color: $color-menu-text-hover;
                       }
             }
+            .nav-link.active{
+                color: $color-menu-text-hover;
+            }
+
             
             &:active{
                 color: $color-menu-text-hover;
