@@ -247,6 +247,7 @@ h3 {
 
 .wr-pets h3 {
   text-align: center;
+  color: #545454;
 }
 
 .wr-pets .pets-container {
@@ -299,6 +300,7 @@ h3 {
 
 .wr-pets .pets-container .card .card-title {
   text-align: center;
+  color: #545454;
 }
 
 .wr-pets .pets-container .card .wrapbutton {
@@ -505,5 +507,9 @@ button:hover {
 
 a {
   text-decoration: none;
+}
+
+.123 {
+  font-size: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

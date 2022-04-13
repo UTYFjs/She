@@ -16,7 +16,7 @@
 }
 
 .wr-start-screen .start-screen .not-only button, .wr-pets .pets-card .card .wrap-button button, .wr-pets .button-main, .button-link {
-  font-family: 'Georgia';
+  font-family: 'Georgia', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
@@ -29,7 +29,7 @@
 
 .wr-pets .pets-card .card .card-title {
   /* pets-card-title */
-  font-family: 'Georgia';
+  font-family: 'Georgia', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -38,7 +38,7 @@
 
 .wr-help .help-list .help-item .icon-title {
   /* h4 */
-  font-family: 'Georgia';
+  font-family: 'Georgia', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -58,7 +58,7 @@
 
 h5 {
   /* h5 */
-  font-family: 'Georgia';
+  font-family: 'Georgia', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -76,7 +76,7 @@ h5 {
 }
 
 .wr-footer footer .footer-item .footer-info .text-footer {
-  font-family: 'Georgia';
+  font-family: 'Georgia', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -118,7 +118,7 @@ body {
 }
 
 .header .logo .subtitle {
-  font-family: 'Arial';
+  font-family: 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -321,6 +321,14 @@ h3 {
   padding: 25px 0px;
 }
 
+.wr-about .about h3 {
+  color: #545454;
+}
+
+.wr-about .about .text-main {
+  color: #4C4C4C;
+}
+
 .wr-pets {
   height: 877px;
   background: #F6F6F6;
@@ -341,6 +349,7 @@ h3 {
 
 .wr-pets h3 {
   text-align: center;
+  color: #545454;
 }
 
 .wr-pets .pets-card {
@@ -434,6 +443,7 @@ h3 {
 .wr-pets .pets-card .card .card-title {
   padding: 30px 98px;
   letter-spacing: 0.06em;
+  color: #545454;
 }
 
 .wr-pets .pets-card .card .wrap-button {
@@ -485,6 +495,7 @@ h3 {
 
 .wr-help h3 {
   text-align: center;
+  color: #545454;
 }
 
 .wr-help .help-list {
@@ -578,6 +589,7 @@ h3 {
 
 .wr-donation .wr2-donation .donation h3 {
   margin: 0;
+  color: #545454;
 }
 
 .wr-donation .wr2-donation .donation h5 {

@@ -6,6 +6,7 @@ $color-menu-text-hover: #FAFAFA;
 $color-button-text:#292929;
 $color-card-background: #FAFAFA;
 $color-button-hover: #FDDCC4;
+$color-text-h3: #545454;
 
 @font-face {
     font-family: 'Georgia';
@@ -27,7 +28,7 @@ letter-spacing: 0px;
 text-align: left;
 }
 %text-button{
-    font-family: 'Georgia';
+    font-family: 'Georgia', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 17px;
@@ -39,7 +40,7 @@ color: #292929;
 }
 %text-card-title{
     /* pets-card-title */
-font-family: 'Georgia';
+font-family: 'Georgia', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -47,7 +48,7 @@ line-height: 23px;
 }
 %text-icon-h4{
 /* h4 */
-font-family: 'Georgia';
+font-family: 'Georgia', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -62,7 +63,7 @@ color: #545454;
 }
 %text-h5{
     /* h5 */
-font-family: 'Georgia';
+font-family: 'Georgia', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 15px;
@@ -76,7 +77,7 @@ color: #545454;
 }
 
 %text-footer{
-    font-family: 'Georgia';
+    font-family: 'Georgia', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -108,7 +109,7 @@ body{
         
                
         .subtitle{
-            font-family: 'Arial';
+            font-family: 'Arial', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 13px;
@@ -260,7 +261,7 @@ h5{
     box-sizing: border-box;
     padding: 80px 40px 100px 40px;
     background: #ffffff;
-    .img-about{
+        .img-about{
         position: relative;
         width: 300px;
         height: 408px;
@@ -277,7 +278,14 @@ h5{
         .padding{
             padding: 25px 0px;
         }
+        h3{
+            color: $color-text-h3;
+        }
+        .text-main{
+            color: $color-main-text;
+        }
     }
+
 }
 
 .wr-pets{
@@ -290,6 +298,7 @@ h5{
     padding: 80px 40px 100px 40px;
     h3{
         text-align: center;
+        color: $color-text-h3;
     }
     .pets-card{
         display: flex;
@@ -353,6 +362,7 @@ h5{
                 @extend %text-card-title;
                 padding: 30px 98px;
                 letter-spacing: 0.06em;
+                color: $color-text-h3;
             }
             .wrap-button{
                 width: 187px;
@@ -398,6 +408,7 @@ h5{
     font-size: 0;
     h3{
         text-align: center;
+        color: $color-text-h3;
     }
     .help-list{
         display: flex;
@@ -457,6 +468,7 @@ h5{
             padding: 0 0 0 30px;
             h3{
                 margin:0;
+                color: $color-text-h3;
             }
             h5{
                 margin: 20px 0;

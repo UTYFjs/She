@@ -7,6 +7,7 @@ $color-button-text:#292929;
 $color-card-background: #FAFAFA;
 $color-button-hover: #FDDCC4;
 $color-dark-1: #545454;
+$color-text-h3: #545454;
 
 @font-face {
     font-family: Georgia, 'Times New Roman', serif;
@@ -231,7 +232,7 @@ h5{
     height: 1342px;
     h3{
         text-align: center;
-
+        color: $color-text-h3;
     }
     .pets-container{
         display:flex;
@@ -266,6 +267,7 @@ h5{
             .card-title{
                 @extend %text-card-title;
                 text-align: center;
+                color: $color-text-h3
             }
             .wrapbutton{
                 box-sizing: border-box;
