@@ -73,7 +73,7 @@ h5 {
 }
 
 body {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   background-color: #F6F6F6;
 }
@@ -149,8 +149,10 @@ h3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 1200px;
-  height: 60px;
+  width: 100%;
+  height: 120px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 30px 40px;
 }
 
@@ -509,7 +511,97 @@ a {
   text-decoration: none;
 }
 
-.123 {
-  font-size: 1rem;
+@media Screen and (max-width: 1280px) {
+  body {
+    max-width: 1279px;
+  }
+  .wr-header {
+    height: 120px;
+  }
+  .wr-header .header {
+    padding: 30px;
+    width: 100%;
+  }
+  .wr-pets {
+    height: 1733px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 30px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: baseline;
+        -ms-flex-pack: baseline;
+            justify-content: baseline;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 60px 30px 70px;
+  }
+  .wr-pets h3 {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-top: 20px;
+  }
+  .wr-pets .pets-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-row-align: center;
+        align-self: center;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 1365px;
+    padding: 0 0 40px;
+    -webkit-column-gap: 40px;
+            column-gap: 40px;
+    row-gap: 30px;
+  }
+  .wr-pets .pets-container .card {
+    margin: 0;
+  }
+  .wr-pets .pets-container .card8, .wr-pets .pets-container .card7 {
+    display: none;
+  }
+  .wr-pets .nav-container {
+    margin-top: 10px;
+    padding: 0;
+  }
+  .wr-footer {
+    height: 639px;
+    padding: 30px 30px 0 30px;
+  }
+  .wr-footer footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 65px;
+  }
+  .wr-footer footer .footer-item {
+    padding: 0;
+  }
+  .wr-footer footer .footer-item1 {
+    padding-left: 34px;
+  }
+  .wr-footer footer .footer-item2 {
+    padding-right: 34px;
+  }
+  .wr-footer footer img {
+    margin: 0 auto;
+    padding: 0 95px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
