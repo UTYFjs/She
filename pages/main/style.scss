@@ -105,8 +105,25 @@ body{
     max-width:1200px;
     height: 60px;
     padding: 60px 40px; 
-    .logo{
+    
+    .burger{ 
+        display:none;
+        width: 30px;
+        height: 30px;
         
+        .burger-line{
+            display:block;
+         width: 30px;
+         height: 2px;
+         background: #F1CDB3;
+        }
+        .burger-line2{
+            margin: 8px 0;
+        }
+        
+
+     }
+    .logo{       
                
         .subtitle{
             font-family: 'Arial', sans-serif;
@@ -228,21 +245,35 @@ h5{
                 height: 322px;
                 left: 0px;
                 top: 163px;
+                .wrapbutton{
+                    padding: 42px 0 0 0;
+                    .button-link{
+                        display:inline-block;
+                        align-self: center;
+                        box-sizing: border-box;
+                        padding: 15px 44px;
+                        text-align: center;
+                        width: 207px;
+                        height: 52px;
+                        /* color-primary */
+                        background-color: #F1CDB3;
+                       border-radius: 100px;
+                       border: none;                       
+                        @extend %text-button;
+                        &:hover{
+                            cursor: pointer;
+                            background: #FDDCC4;
+                        }
+                        
+                    }
+                }
             }
             .text-main{
     @extend %text-main;
     color: #CDCDCD;
             }
-            .wrapbutton{
-                padding: 42px 0 0 0;
-            }
-            button{
-                width: 207px;
-                height: 52px;
-                /* color-primary */
-               border-radius: 100px;
-                @extend %text-button;
-            }
+            
+            
         }
         .img-puppy{
             position: relative;
@@ -392,8 +423,12 @@ h5{
         @extend %text-button;
         width: 261px;
         height: 52px;
-
         border-radius: 100px;
+        box-sizing: border-box;
+        padding: 15px 44px;
+        &:hover{
+            background: $color-button-hover;
+        }
     }
 
 }
@@ -473,7 +508,10 @@ h5{
             h5{
                 margin: 20px 0;
             }
-            #donation-button{
+            .btndon{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 width: 349px;
                 height: 43px;
                 /* color-primary */
@@ -481,18 +519,17 @@ h5{
                 border-radius: 9px;
                 border:0;
                 margin: 0 0 20px 0;
-                & :hover{
-                    background: $color-button-hover;
-                    border-radius: 9px;
-                }
-                a{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-evenly;
-                    width: 349px;
-                    height: 43px;
+                   
 
+                    img{
+                        display: inline-block;
+                        padding-left: 15px;
+                    }
                     span{
+                        display: inline-block;
+
+                        box-sizing: border-box;
+                        padding: 10px 15px 10px 0px;
                         font-family: 'Georgia';
                         font-style: normal;
                         font-weight: 400;
@@ -503,8 +540,12 @@ h5{
                         /* color-dark-l */
                         color: #545454;
                     }
-
-                }
+                    &:hover{
+                        background: $color-button-hover;
+                        
+                    }
+                    
+        
                 
             }
             .donation-info{
@@ -576,7 +617,7 @@ h5{
 }
 
 .button-arrow{
-    background: $color-card-background;
+    background: $color-cream;
 }
 .button-card{
    border: 2px solid #F1CDB3;
@@ -594,6 +635,12 @@ border-radius: 100px;
     @extend %text-button;
     
 }
+.button-card{
+    text-decoration: none;
+    @extend %text-button;
+    
+}
+
 button:hover{
     cursor: pointer;
     background: #FDDCC4;
@@ -603,7 +650,7 @@ a{
     text-decoration: none;
 }
 
-@media Screen and (max-width: 1280px){
+@media Screen and (max-width: 1279.6px) and (min-width: 768px){
     body{
         max-width: 1279px;
     }
@@ -651,7 +698,7 @@ a{
 
     }
     .wr-pets{
-
+        height: 877px;
         padding: 80px 30px 100px 30px;
         .pets-card {
             width: 100%;
@@ -665,11 +712,6 @@ a{
                 }
             }
         }
-        .button-arrow{
-            
-        }
-
-
     }
     .wr-help{
         height: 779px;
@@ -723,23 +765,21 @@ a{
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 65px;
             .footer-item{
                 padding: 0;
             }
-            .footer-item1{
-                padding-left:34px;
-                
-            }
+          
             .footer-item2{
-                padding-right: 34px;
+                padding-right: 8px;
+                
                 
             }
             img{
                 margin: 0 auto;
-                padding:0 95px;
+                padding:0 105px;
                 
             }
 
@@ -747,4 +787,340 @@ a{
         }
 
     }
+}
+
+@media Screen and (max-width: 767.6px){
+    body{
+        max-width: 767px;
+    }
+    *{
+        padding:0;
+        margin:0;
+    }
+    h2{
+        font-size: 25px; 
+        text-align: center;
+        letter-spacing: 0.06em;    
+    }
+    h3{
+        font-size: 25px; 
+        text-align: center;
+        letter-spacing: 0.06em;    
+    }
+
+    .header{
+
+        height: 60px;
+        padding: 30px 53px 0 10px;
+        align-items: center;
+
+        .burger{
+            display:flex;
+            flex-direction: column;
+            padding-top:6px;
+        }
+        nav{
+            display: none;
+        }
+    }
+
+    .wr-start-screen{
+        height: 823px;
+        .start-screen{
+            flex-direction: column;
+            align-items: center;
+            width:94%;
+            height: 733px;
+            padding: 0 3% 0;
+            .not-only{
+                width: 300px;
+                height: 296px;
+                padding: 60px 0 0 0;
+               .wraponly{
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    position: static;
+                    h2{ 
+                        width:300px;
+                        align: center;
+                        box-sizing: border-box;
+                        padding-left: 52px;
+                        
+                    }
+                    .text-main{
+                        width:100%;
+                        max-height: 96px;
+                        text-align: center;
+                    }
+                    .wrapbutton{
+                        align-self: center;
+                    }
+                }
+            }
+            .img-puppy{
+                display:block;
+                align-self: center;
+                padding-right: 0;
+                padding-left: 40px;
+                width: 260px;
+                height: 271px;
+            }
+        }
+    }
+    
+    .wr-about{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-between;
+        height: 974px;
+        padding: 42px 3%;
+        .img-about{
+            position: static;
+            width: 260px;
+            height: 353px;
+            img{ 
+                width: 260px;
+                height: 353px;
+            }
+
+        }
+        .about{
+            position: static;
+            width: 300px;
+            height: 494px;
+            .text-main{
+                padding-right: 15px;
+                padding-left: 15px;
+                text-align: justify;
+            }
+        }
+
+
+    }
+    
+    .wr-pets{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 791px;
+        padding: 42px 3%;
+        h3{
+            padding-bottom: 22px;
+        }
+        .pets-card {
+            width: 270px;
+            height: 507px;
+            overflow: hidden;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0;
+            margin-bottom: 10px;
+          
+            .button-arrow{
+
+            }
+            .button-arrow-right{
+                order:3;
+              
+            }
+            .button-arrow-left{
+                order:2;
+
+            }
+            .card-wrapper{
+                order:1;
+                width: 270px;
+                height: 435px;
+                justify-content:flex-start;
+                position: static;
+                padding: 0;
+                
+                .card1{
+                    margin-bottom: 20px;
+                }
+
+                .card3 {
+                    display: none;
+                }
+                .card2 {
+                    display: none;
+                }
+            }
+        }
+    }
+    
+    .wr-help{
+        height: 745px;
+        padding: 42px 5%;
+       
+        .help-list{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px 30px;
+            padding: 42px 0 0 0 ;
+            justify-content: space-between;
+            .help-item{
+                padding: 0;
+                height: 87px;
+                width: 130px;
+
+                .icon{
+                    height: 50px;
+                    width: auto;
+                    
+                }
+                .icon-title{
+                    font-size: 15px;
+                    line-height: 110%;
+                    
+                }
+            }
+            #child1{
+                padding:0;
+                margin: 0;
+            }
+            #child5{
+                padding:0;
+                margin: 0;
+            }
+        }
+    }
+  
+    .wr-donation{
+        height: 542px;
+        box-sizing: border-box;
+        padding: 0;
+        .wr2-donation{
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding: 42px 3%;
+            #imgdog {
+                width: 260px; 
+                height: 135px;
+            }
+            h5{
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 160%;
+                white-space: nowrap;
+                letter-spacing: 0;
+                text-align: center;
+                
+            }
+            .donation{
+                width: 300px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+
+                
+                .btndon {
+                    width: 281px;
+                    height: 43px;
+                    background: #F1CDB3;
+                    border-radius: 9px;
+                    border:0;
+                    margin: 0 0 20px 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 281px;
+                        height: 43px;
+                
+                        span{
+                            font-family: 'Georgia';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 15px;
+                            line-height: 110%;
+                            /* identical to box height, or 23px */
+                            letter-spacing: 0.06em;
+                            /* color-dark-l */
+                            color: #545454;
+                        }
+                
+                    
+                    & :hover{
+                        background: $color-button-hover;
+                        border-radius: 9px;
+                    }
+                }
+                
+                .donation-info{
+                    text-align: justify;
+                    box-sizing: border-box;
+                    padding: 0 10px;
+
+                }
+            }
+            
+        
+    }
+    
+}
+.wr-footer{
+    height: 809px;
+    padding: 30px 3% 0;
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 40px;
+        .footer-item{
+            display:flex;
+            align-items: center;
+            padding: 0;
+            h3{
+                br{
+                    display: none;
+                }
+            }
+        }
+        .footer-item1{
+            width:278px;
+            height: 208px;
+            .info1{
+                padding: 42px 0;
+            }
+            
+        }
+        .footer-item2{
+            .h3-footer2{
+                width: 270px;
+            }
+
+            .info2{
+                padding: 40px 0;
+            }
+            .footer-info{
+                align-self: flex-start;
+            }
+            
+            
+        }
+        .footer-puppy{
+            width: 260px;
+            height: 269px;
+            padding:0;
+                  }
+
+
+    }
+
+}
 }

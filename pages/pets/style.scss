@@ -147,12 +147,13 @@ h5{
 }
 
 .wr-header{
-    position:sticky;
-    top: 0;
+    position: sticky;
+    top:0;
     background-color: #FFFFFF;
 
-.header{
-    
+    .header{
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -161,6 +162,24 @@ h5{
     height: 120px;
     box-sizing: border-box;
     padding: 30px 40px; 
+
+    .burger{ 
+        display:none;
+        width: 30px;
+        height: 30px;
+        
+        .burger-line{
+            display:block;
+         width: 30px;
+         height: 2px;
+         background: #000000;
+        }
+        .burger-line2{
+            margin: 8px 0;
+        }
+        
+
+     }
     .logo{  
         h1{
             color: $color-dark-1;
@@ -222,7 +241,7 @@ h5{
             }
         }
      }  
-}
+    }
 }     
 
 .wr-pets{
@@ -438,7 +457,7 @@ a{
     text-decoration: none;
 }
 
-@media Screen and (max-width: 1280px){
+@media Screen and (max-width: 1279.6px) and (min-width: 768px){
     body{
         max-width: 1279px;
         
@@ -475,13 +494,12 @@ a{
             padding: 0 0 40px;
             column-gap: 40px;
             row-gap: 30px;
+            overflow: hidden;
 
             .card{
                 margin: 0;
             }
-            .card8, .card7 {
-                display: none;
-            }
+            
         }
        
         .nav-container{
@@ -502,18 +520,15 @@ a{
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 65px;
             .footer-item{
                 padding: 0;
             }
-            .footer-item1{
-                padding-left:34px;
-                
-            }
+           
             .footer-item2{
-                padding-right: 34px;
+                padding-right: 8px;
                 
             }
             img{
@@ -525,5 +540,136 @@ a{
 
         }
 
+    }
+}
+
+@media Screen and (max-width: 767.6px){
+    body{
+        max-width: 767px;
+    }
+    *{
+        padding:0;
+        margin:0;
+    }
+    h2{
+        font-size: 25px; 
+        text-align: center;
+        letter-spacing: 0.06em;    
+    }
+    h3{
+        font-size: 25px; 
+        text-align: center;
+        letter-spacing: 0.06em;    
+    }
+
+    .wr-header{
+        height: 120px;
+        .header{
+            height: 60px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 53px 30px 10px;
+
+            .burger{
+                display:flex;
+                flex-direction: column;
+                padding-top: 8px;
+            }
+    
+            nav{
+                display: none;
+            }
+        }
+    }
+    
+
+    .wr-pets{
+        height: 1649px;
+        display: flex;
+        gap:30px;
+        align-items: center;
+        justify-content:baseline;
+        box-sizing: border-box;
+        padding: 42px 3%;
+
+        h3{
+            padding:0;
+        }
+        .pets-container{
+            display: grid;
+            grid-template-columns: 1fr;
+            align-self: center;
+            box-sizing: border-box;
+            height: 1365px;
+            padding: 0 0 40px;
+            row-gap: 30px;
+            overflow: hidden;
+            margin-top: 10px;
+
+            .card{
+                margin: 0;
+            }
+            
+        }
+       
+        .nav-container{
+            width: 300px;
+            height: 52px;
+            margin-top:10px;
+            padding: 0;
+        }
+
+    }
+    .wr-footer{
+        height: 809px;
+        padding: 30px 3% 0;
+        footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            .footer-item{
+                display:flex;
+                align-items: center;
+                padding: 0;
+                h3{
+                    br{
+                        display: none;
+                    }
+                }
+            }
+            .footer-item1{
+                width:278px;
+                height: 208px;
+                .info1{
+                    padding: 42px 0;
+                }
+                
+            }
+            .footer-item2{
+                .h3-footer2{
+                    width: 270px;
+                }
+    
+                .info2{
+                    padding: 40px 0;
+                }
+                .footer-info{
+                    align-self: flex-start;
+                }
+                
+                
+            }
+            .footer-puppy{
+                width: 260px;
+                height: 269px;
+                padding:0;
+            }
+    
+    
+        }
+    
     }
 }
