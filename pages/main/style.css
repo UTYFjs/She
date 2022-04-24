@@ -978,6 +978,24 @@ a {
   }
 }
 
+@-webkit-keyframes move-logo {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 126px;
+  }
+}
+
+@keyframes move-logo {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 126px;
+  }
+}
+
 @media Screen and (max-width: 767.6px) {
   body {
     max-width: 767px;
@@ -985,6 +1003,19 @@ a {
   * {
     padding: 0;
     margin: 0;
+  }
+  .lock {
+    overflow: hidden;
+  }
+  .shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  .active {
+    background: rgba(41, 41, 41, 0.6);
+    z-index: 1;
   }
   h2 {
     font-size: 25px;
@@ -1003,6 +1034,20 @@ a {
         -ms-flex-align: center;
             align-items: center;
   }
+  .header .logo {
+    z-index: 4;
+  }
+  .header .logo-active {
+    display: block;
+    position: absolute;
+    -webkit-animation-name: move-logo;
+            animation-name: move-logo;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    right: 126px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
   .header .burger {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1012,9 +1057,70 @@ a {
         -ms-flex-direction: column;
             flex-direction: column;
     padding-top: 6px;
+    z-index: 3;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    position: absolute;
+    right: 52px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
   }
-  .header nav {
-    display: none;
+  .header .active {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .header .menu-body {
+    position: fixed;
+    display: block;
+    background: #292929;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 248px 38px 248px 39px;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100%;
+    z-index: 2;
+    -webkit-transition: right 0.5s;
+    transition: right 0.5s;
+    overflow: scroll;
+  }
+  .header .menu-body .nav-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 243px;
+    height: 327px;
+  }
+  .header .menu-body .nav-menu .nav-item {
+    margin: 0;
+  }
+  .header .menu-body .nav-menu .nav-item a {
+    font-family: Arial;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 51px;
+    letter-spacing: 0px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+  .header .menu-body-active {
+    right: 0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
   }
   .wr-start-screen {
     height: 823px;

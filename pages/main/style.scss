@@ -788,7 +788,10 @@ a{
 
     }
 }
-
+@keyframes move-logo {
+    from{ right: -100%;}
+    to{ right:126px}
+}
 @media Screen and (max-width: 767.6px){
     body{
         max-width: 767px;
@@ -797,6 +800,18 @@ a{
         padding:0;
         margin:0;
     }
+    .lock{
+        overflow: hidden;
+         }
+    .shadow{
+            width:100%;
+            height: 100%;
+            position:absolute;
+            z-index: 1;
+         }
+    .active{            
+            background: rgba(41, 41, 41, 0.6);
+            z-index: 1;}
     h2{
         font-size: 25px; 
         text-align: center;
@@ -809,18 +824,83 @@ a{
     }
 
     .header{
-
         height: 60px;
         padding: 30px 53px 0 10px;
         align-items: center;
+    
+        .logo{
+            z-index:4;
+        }
+        .logo-active{
+              display: block;
+              position: absolute;
+              animation-name: move-logo;
+              animation-duration: 0.5s;
+              right:126px;
+              transition: all 0.5s;
+             
+        }
 
         .burger{
             display:flex;
             flex-direction: column;
             padding-top:6px;
+            z-index: 3;
+            transform: rotate(0);
+            position: absolute;
+            right: 52px;
+            transition: all 0.5s;
+            
         }
-        nav{
-            display: none;
+        .active{
+            transform: rotate(90deg);
+            transition: all 0.5s;
+        }
+        
+        .menu-body{
+            position: fixed;
+            display: block;
+            background: $color-button-text;
+            box-sizing: border-box;
+            padding: 248px 38px 248px 39px;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100%;
+            z-index: 2;
+            transition: right 0.5s;
+            overflow: scroll;
+            .nav-menu{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                width: 243px;
+                height: 327px;
+                
+                
+                .nav-item{
+                    margin:0;
+                    
+                    a{
+                        //styleName: paragraph-mobile-menu;
+                        font-family: Arial;
+                        font-size: 32px;
+                        font-weight: 400;
+                        line-height: 51px;
+                        letter-spacing: 0px;
+                        text-align: left;
+                        padding: 0;
+                        margin: 0;
+
+                    }
+                }
+            }
+        }
+        .menu-body-active{
+            right: 0;
+            transition:all 0.5s;
+            
         }
     }
 
