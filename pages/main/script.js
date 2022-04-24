@@ -129,14 +129,38 @@ for(let select of menuAllLink){
       
   };
  
-/*
-  for (let current of menuAllLink) {
-    current.addEventListener('click', function () {
-      if (menuBody.classList.contains('active')) {
-        exitMenu();
-      }
-    });
-  } // Close menu by dark area
+/*------ carousel*/
 
-*/
+const buttonLeft = document.querySelector('.button-arrow-left');
+const buttonRight = document.querySelector('.button-arrow-right');
+const carousel = document.querySelector('.card-wrapper');
+
+const moveRight = () => { 
+  carousel.classList.add('move-right');
+  carousel.removeEventListener('animationend', moveRight);
+  carousel.removeEventListener('animationend', moveLeft);
+
+}
+
+const moveLeft = () => { 
+  carousel.classList.add('move-left');
+  carousel.removeEventListener('animationend', moveRight);
+  carousel.removeEventListener('animationend', moveLeft);
+
+}
+
+buttonLeft.addEventListener('click', moveLeft);
+buttonRight.addEventListener('click', moveRight);
+
+carousel.addEventListener('animationend', animationEvent=> {
+  if(animationEvent.animationName === 'move-left-carousel'){
+    carousel.classList.remove('move-left');
+    const leftItem=document.querySelector()
+  } else{
+    carousel.classList.remove('move-right');
+  }
+})
+
+
+
 

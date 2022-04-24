@@ -776,6 +776,9 @@ a {
     margin: 0;
     color: #CDCDCD;
   }
+  .wr-header .header .menu-body .nav-menu .nav-item a:active {
+    color: #fafafa;
+  }
   .wr-header .header .menu-body .nav-menu .nav-item .active {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);

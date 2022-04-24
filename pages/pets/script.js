@@ -42,3 +42,6 @@ for(let select of menuAllLink){
       );
       
   };
+
+  /*--------------*/
+  
