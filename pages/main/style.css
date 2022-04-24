@@ -15,7 +15,7 @@
   text-align: left;
 }
 
-.wr-start-screen .start-screen .not-only .wraponly .wrapbutton .button-link, .wr-pets .pets-card .card .wrap-button button, .wr-pets .button-main, .button-link, .button-card {
+.wr-start-screen .start-screen .not-only .wraponly .wrapbutton .button-link, .wr-pets .pets-card .card-wrapper .carousel .carousel-set .card .wrap-button button, .wr-pets .button-main, .button-link, .button-card {
   font-family: 'Georgia', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -27,7 +27,7 @@
   color: #292929;
 }
 
-.wr-pets .pets-card .card .card-title {
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card .card-title {
   /* pets-card-title */
   font-family: 'Georgia', sans-serif;
   font-style: normal;
@@ -251,6 +251,74 @@ h3 {
   text-align: left;
 }
 
+@-webkit-keyframes move-logo {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 126px;
+  }
+}
+
+@keyframes move-logo {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 126px;
+  }
+}
+
+@-webkit-keyframes move-left-carousel {
+  from {
+    left: -990px;
+  }
+  to {
+    left: -1980px;
+  }
+}
+
+@keyframes move-left-carousel {
+  from {
+    left: -990px;
+  }
+  to {
+    left: -1980px;
+  }
+}
+
+@-webkit-keyframes move-right-carousel {
+  from {
+    left: -990px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes move-right-carousel {
+  from {
+    left: -990px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.move-right {
+  -webkit-animation-name: move-right-carousel;
+          animation-name: move-right-carousel;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
+.move-left {
+  -webkit-animation-name: move-left-carousel;
+          animation-name: move-left-carousel;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
 .wr-start-screen {
   height: 908px;
   background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
@@ -440,9 +508,44 @@ h3 {
       -ms-flex-align: center;
           align-items: center;
   width: 990px;
+  overflow: hidden;
 }
 
-.wr-pets .pets-card .card {
+.wr-pets .pets-card .card-wrapper .carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  left: -990px;
+}
+
+.wr-pets .pets-card .card-wrapper .carousel #carousel-left {
+  background: green;
+}
+
+.wr-pets .pets-card .card-wrapper .carousel #carousel-active {
+  background: blue;
+}
+
+.wr-pets .pets-card .card-wrapper .carousel #carousel-right {
+  background: yellow;
+}
+
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  wrap: nowrap;
+  width: 990px;
+  -webkit-column-gap: 90px;
+          column-gap: 90px;
+}
+
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -460,37 +563,37 @@ h3 {
   border-radius: 9px;
 }
 
-.wr-pets .pets-card .card:hover {
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card:hover {
   background: #fff;
   -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
           box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   cursor: pointer;
 }
 
-.wr-pets .pets-card .card:hover .button-card {
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card:hover .button-card {
   background: #FDDCC4;
   border: none;
 }
 
-.wr-pets .pets-card .card .card-title {
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card .card-title {
   padding: 30px 98px;
   letter-spacing: 0.06em;
   color: #545454;
 }
 
-.wr-pets .pets-card .card .wrap-button {
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card .wrap-button {
   width: 187px;
   height: 52px;
 }
 
-.wr-pets .pets-card .card .wrap-button button {
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card .wrap-button button {
   border: 2px solid #F1CDB3;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 100px;
 }
 
-.wr-pets .pets-card .card .wrap-button button :hover {
+.wr-pets .pets-card .card-wrapper .carousel .carousel-set .card .wrap-button button :hover {
   background: #FDDCC4;
   border: none;
 }
@@ -696,6 +799,157 @@ h3 {
   color: #B2B2B2;
 }
 
+.popup {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.6);
+}
+
+.popup .popup-body {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-column-gap: 29px;
+          column-gap: 29px;
+  max-width: 900px;
+  width: 100%;
+  height: 500px;
+  left: 0px;
+  top: 52px;
+  background: #FAFAFA;
+  border-radius: 9px;
+  margin: 50px auto;
+  /* card-hover */
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.popup .popup-body .popup-close {
+  position: absolute;
+  top: -52px;
+  right: -40px;
+  width: 52px;
+  height: 52px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 52px;
+  height: 52px;
+  box-sizing: border-box;
+}
+
+.popup .popup-body .popup-close:hover {
+  cursor: pointer;
+}
+
+.popup .popup-body .popup-close img {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.popup .popup-body .popup-image {
+  height: 500px;
+  width: 500px;
+  border-radius: 9px 0px 0px 9px;
+  position: relative;
+  left: 0;
+}
+
+.popup .popup-body .popup-image img {
+  width: auto;
+  height: 100%;
+  position: relative;
+  left: 0;
+}
+
+.popup .popup-body .popup-info {
+  height: 100%;
+  width: 351px;
+  padding: 50px 20px 88px 0;
+}
+
+.popup .popup-body .popup-info .popup-title {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  /* or 45px */
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+
+.popup .popup-body .popup-info .popup-type {
+  display: inline-block;
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  /* identical to box height, or 23px */
+  letter-spacing: 0.06em;
+  color: #000000;
+  padding-top: 10px;
+}
+
+.popup .popup-body .popup-info .popup-text {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 110%;
+  /* or 17px */
+  letter-spacing: 0.06em;
+  color: #000000;
+  padding: 40px 0;
+}
+
+.popup .popup-body .popup-info .popup-list .popup-link::before {
+  content: " ";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #f1cdb3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.popup .popup-body .popup-info .popup-list .popup-link {
+  position: relative;
+  font-family: 'Georgia';
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 110%;
+  font-style: normal;
+  /* identical to box height, or 17px */
+  letter-spacing: 0.06em;
+  color: #000000;
+  padding: 0  0 10px 12px;
+  list-style: none;
+}
+
+.popup .popup-body .popup-info .popup-list .popup-link span {
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 110%;
+  font-style: normal;
+  /* identical to box height, or 17px */
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+
 .wr-footer {
   height: 350px;
   background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) #211F20;
@@ -876,6 +1130,50 @@ a {
   .wr-about .about {
     position: static;
   }
+  @-webkit-keyframes move-left-carousel {
+    from {
+      left: -580px;
+    }
+    to {
+      left: -1160px;
+    }
+  }
+  @keyframes move-left-carousel {
+    from {
+      left: -580px;
+    }
+    to {
+      left: -1160px;
+    }
+  }
+  @-webkit-keyframes move-right-carousel {
+    from {
+      left: -580px;
+    }
+    to {
+      left: 0;
+    }
+  }
+  @keyframes move-right-carousel {
+    from {
+      left: -580px;
+    }
+    to {
+      left: 0;
+    }
+  }
+  .move-right {
+    -webkit-animation-name: move-right-carousel;
+            animation-name: move-right-carousel;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+  }
+  .move-left {
+    -webkit-animation-name: move-left-carousel;
+            animation-name: move-left-carousel;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+  }
   .wr-pets {
     height: 877px;
     padding: 80px 30px 100px 30px;
@@ -884,9 +1182,19 @@ a {
     width: 100%;
   }
   .wr-pets .pets-card .card-wrapper {
-    width: 88%;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    width: 580px;
+  }
+  .wr-pets .pets-card .card-wrapper .carousel {
+    left: -580px;
+  }
+  .wr-pets .pets-card .card-wrapper .carousel .carousel-set {
+    -webkit-column-gap: 40px;
+            column-gap: 40px;
+    width: 580px;
+    overflow: hidden;
+  }
+  .wr-pets .pets-card .card-wrapper .carousel .carousel-set .card3 {
+    display: none;
   }
   .wr-pets .pets-card .card-wrapper .card3 {
     display: none;
@@ -944,6 +1252,42 @@ a {
   .wr-donation .wr2-donation .donation {
     padding: 0;
   }
+  .popup .popup-body {
+    max-width: 630px;
+    width: 100%;
+    height: 350px;
+    -webkit-column-gap: 11px;
+            column-gap: 11px;
+  }
+  .popup .popup-body .popup-image {
+    width: 350px;
+    height: 350px;
+  }
+  .popup .popup-body .popup-info {
+    padding: 10px 9px 37px 0;
+  }
+  .popup .popup-body .popup-info .popup-type {
+    padding-top: 10px;
+  }
+  .popup .popup-body .popup-info .popup-text {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 110%;
+    /* or 14px */
+    letter-spacing: 0.06em;
+    color: #000000;
+    padding: 20px 0;
+  }
+  .popup .popup-body .popup-info .popup-list .popup-link::before {
+    top: 7px;
+    width: 4px;
+    height: 4px;
+  }
+  .popup .popup-body .popup-info .popup-list .popup-link {
+    padding: 0 0 5px 12px;
+  }
   .wr-footer {
     height: 639px;
     padding: 30px 30px 0 30px;
@@ -976,74 +1320,6 @@ a {
     margin: 0 auto;
     padding: 0 105px;
   }
-}
-
-@-webkit-keyframes move-logo {
-  from {
-    right: -100%;
-  }
-  to {
-    right: 126px;
-  }
-}
-
-@keyframes move-logo {
-  from {
-    right: -100%;
-  }
-  to {
-    right: 126px;
-  }
-}
-
-@-webkit-keyframes move-left-carousel {
-  from {
-    right: 0;
-  }
-  to {
-    right: 990px;
-  }
-}
-
-@keyframes move-left-carousel {
-  from {
-    right: 0;
-  }
-  to {
-    right: 990px;
-  }
-}
-
-@-webkit-keyframes move-right-carousel {
-  from {
-    left: 0;
-  }
-  to {
-    left: 990px;
-  }
-}
-
-@keyframes move-right-carousel {
-  from {
-    left: 0;
-  }
-  to {
-    left: 990px;
-  }
-}
-
-.move-left {
-  -webkit-animation-name: move-left-carousel;
-          animation-name: move-left-carousel;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-}
-
-.move-right {
-  -webkit-animation-name: move-right-carousel;
-          animation-name: move-right-carousel;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
 }
 
 @media Screen and (max-width: 767.6px) {
@@ -1267,6 +1543,50 @@ a {
     padding-left: 15px;
     text-align: justify;
   }
+  @-webkit-keyframes move-left-carousel {
+    from {
+      left: -270px;
+    }
+    to {
+      left: -540px;
+    }
+  }
+  @keyframes move-left-carousel {
+    from {
+      left: -270px;
+    }
+    to {
+      left: -540px;
+    }
+  }
+  @-webkit-keyframes move-right-carousel {
+    from {
+      left: -270px;
+    }
+    to {
+      left: 0;
+    }
+  }
+  @keyframes move-right-carousel {
+    from {
+      left: -270px;
+    }
+    to {
+      left: 0;
+    }
+  }
+  .move-right {
+    -webkit-animation-name: move-right-carousel;
+            animation-name: move-right-carousel;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+  }
+  .move-left {
+    -webkit-animation-name: move-left-carousel;
+            animation-name: move-left-carousel;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+  }
   .wr-pets {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1326,6 +1646,7 @@ a {
             justify-content: flex-start;
     position: static;
     padding: 0;
+    overflow: visible;
   }
   .wr-pets .pets-card .card-wrapper .card1 {
     margin-bottom: 20px;
@@ -1335,6 +1656,15 @@ a {
   }
   .wr-pets .pets-card .card-wrapper .card2 {
     display: none;
+  }
+  .wr-pets .pets-card .card-wrapper .carousel {
+    left: -270px;
+  }
+  .wr-pets .pets-card .card-wrapper .carousel .carousel-set {
+    -webkit-column-gap: 0;
+            column-gap: 0;
+    width: 270px;
+    overflow: hidden;
   }
   .wr-help {
     height: 745px;
@@ -1461,6 +1791,52 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     padding: 0 10px;
+  }
+  .popup .popup-body {
+    max-width: 240px;
+    width: 100%;
+    height: 341px;
+    -webkit-column-gap: 0px;
+            column-gap: 0px;
+  }
+  .popup .popup-body .popup-close {
+    top: -52px;
+    right: -29px;
+  }
+  .popup .popup-body .popup-image {
+    display: none;
+  }
+  .popup .popup-body .popup-info {
+    padding: 10px;
+  }
+  .popup .popup-body .popup-info .popup-title {
+    text-align: center;
+  }
+  .popup .popup-body .popup-info .popup-type-container {
+    padding: 0 34px;
+  }
+  .popup .popup-body .popup-info .popup-type-container .popup-type {
+    padding-top: 10px;
+    text-align: center;
+  }
+  .popup .popup-body .popup-info .popup-text {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 110%;
+    /* or 14px */
+    letter-spacing: 0.06em;
+    color: #000000;
+    padding: 20px 0 24px 0;
+  }
+  .popup .popup-body .popup-info .popup-list .popup-link::before {
+    top: 7px;
+    width: 4px;
+    height: 4px;
+  }
+  .popup .popup-body .popup-info .popup-list .popup-link {
+    padding: 0 0 5px 12px;
   }
   .wr-footer {
     height: 809px;

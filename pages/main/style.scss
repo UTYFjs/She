@@ -229,6 +229,28 @@ h3{     //styleName: h3;
 h5{
     @extend %text-h5;
 }
+
+@keyframes move-logo {
+    from{ right: -100%;}
+    to{ right:126px}
+}
+@keyframes move-left-carousel {
+    from{ left: -990px}
+    to {left: -1980px;}
+}
+@keyframes move-right-carousel {
+    from{ left: -990px}
+    to {left: 0}
+}
+
+.move-right{
+    animation-name: move-right-carousel;
+    animation-duration: 0.5s;
+}
+.move-left{
+    animation-name: move-left-carousel;
+    animation-duration: 0.5s;
+}
 .wr-start-screen{
     height: 908px;
     background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
@@ -367,51 +389,80 @@ h5{
             justify-content: space-between;
             align-items: center;
             width:990px;
-            
-        }
-        .card{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 435px;
-            width: 270px;
-            border-radius: 9px;
-            background: #FAFAFA;
-            border-radius: 9px;
-            
+            overflow: hidden;
 
-            &:hover{
-                background: #fff;
-                box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
-                cursor: pointer;
-                .button-card{
-                    background: $color-button-hover;
-                    border: none;
+
+            .carousel{
+                display:flex;
+                position:relative;
+                left: -990px;
+                #carousel-left{
+                    background: green;
+                }
+                #carousel-active{
+                    background: blue;
+                }#carousel-right{
+                    background: yellow;
+                }
+
+                .carousel-set{
+
+                    display: flex;
+                    flex-direction: row;
+                    wrap: nowrap;
+                    width:990px;
+                    column-gap: 90px;
+                    
+                    .card{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        height: 435px;
+                        width: 270px;
+                        border-radius: 9px;
+                        background: #FAFAFA;
+                        border-radius: 9px;
+                        
+            
+                        &:hover{
+                            background: #fff;
+                            box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+                            cursor: pointer;
+                            .button-card{
+                                background: $color-button-hover;
+                                border: none;
+                            }
+                        }
+                        .card-title{
+                            @extend %text-card-title;
+                            padding: 30px 98px;
+                            letter-spacing: 0.06em;
+                            color: $color-text-h3;
+                        }
+                        .wrap-button{
+                            width: 187px;
+                            height: 52px;
+                       
+                        button{
+                            @extend %text-button;
+                            
+                            border: 2px solid #F1CDB3;
+                            box-sizing: border-box;
+                            border-radius: 100px;
+                            & :hover{
+                                background: $color-button-hover;
+                                border: none;
+                            }
+                        }
+                    }
+                    }
                 }
             }
-            .card-title{
-                @extend %text-card-title;
-                padding: 30px 98px;
-                letter-spacing: 0.06em;
-                color: $color-text-h3;
-            }
-            .wrap-button{
-                width: 187px;
-                height: 52px;
-           
-            button{
-                @extend %text-button;
-                
-                border: 2px solid #F1CDB3;
-                box-sizing: border-box;
-                border-radius: 100px;
-                & :hover{
-                    background: $color-button-hover;
-                    border: none;
-                }
-            }
+
+            
         }
-        }
+
+        
 
 
     }
@@ -563,6 +614,165 @@ h5{
         }
     }
 }
+
+.popup{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width:100%;
+    height: 100%;
+    background: rgba(41, 41, 41, 0.6);;
+
+    .popup-body{
+        position: relative;
+        display: flex;
+        justify-content: start;
+        column-gap: 29px;
+        max-width: 900px;
+        width: 100%;
+        height: 500px;
+        left: 0px;
+        top: 52px;
+        background: #FAFAFA;
+        border-radius: 9px;
+        margin: 50px auto;
+        /* card-hover */
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+        .popup-close{
+            position: absolute;
+            top: -52px;
+            right: -40px;
+            width: 52px;
+            height: 52px;
+            box-sizing: border-box;
+            width:52px;
+            height: 52px;
+
+            box-sizing: border-box;
+            &:hover{
+                cursor:pointer;
+
+            }
+            img{
+                
+                box-sizing: border-box;
+
+            }
+
+        }
+        .popup-image{
+            height: 500px;
+            width: 500px;
+            border-radius: 9px 0px 0px 9px;
+            position: relative;
+            left:0;
+
+           img{
+               width: auto;
+               height: 100%;
+               position: relative;
+               left:0;
+               
+           }
+        }
+        .popup-info{
+            height: 100%;
+            width: 351px;
+            padding: 50px 20px 88px 0;
+
+            .popup-title{
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 35px;
+                line-height: 130%;
+                /* or 45px */
+
+                letter-spacing: 0.06em;
+
+                color: #000000;
+            }
+            .popup-type{
+                display: inline-block;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                /* identical to box height, or 23px */
+
+                letter-spacing: 0.06em;
+
+                color: #000000;
+                padding-top: 10px;
+               
+
+            }
+            .popup-text{
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 110%;
+                /* or 17px */
+
+                letter-spacing: 0.06em;
+
+                color: #000000;
+                padding: 40px 0;
+            }
+            .popup-list{
+                
+                .popup-link::before {
+                    content: " ";
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 50%;
+                    background-color: #f1cdb3;
+                    box-sizing: border-box;
+                }
+                .popup-link{
+                    position: relative;
+                    font-family: 'Georgia';
+                    font-weight: 600;
+                    font-size: 15px;
+                    line-height: 110%;
+                    font-style: normal;
+                    /* identical to box height, or 17px */
+                    
+                    letter-spacing: 0.06em;
+                    
+                    color: #000000;
+                    padding: 0  0 10px 12px;
+                    list-style: none;
+
+                    
+                    span{
+                        font-family: 'Georgia';
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 110%;
+                        font-style: normal;
+                        /* identical to box height, or 17px */
+                        
+                        letter-spacing: 0.06em;
+                        
+                        color: #000000;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+}
+
 .wr-footer{
     height: 350px;
     background: $color-gradient;
@@ -697,6 +907,22 @@ a{
         }
 
     }
+    @keyframes move-left-carousel {
+        from{ left: -580px}
+        to {left: -1160px;}
+    }
+    @keyframes move-right-carousel {
+        from{ left: -580px}
+        to {left: 0}
+    }
+    .move-right{
+        animation-name: move-right-carousel;
+        animation-duration: 0.5s;
+    }
+    .move-left{
+        animation-name: move-left-carousel;
+        animation-duration: 0.5s;
+    }
     .wr-pets{
         height: 877px;
         padding: 80px 30px 100px 30px;
@@ -704,8 +930,21 @@ a{
             width: 100%;
             
             .card-wrapper{
-                width: 88%;
-                justify-content: space-around;
+                width: 580px;
+
+                .carousel{
+                    left: -580px;
+
+                    .carousel-set{
+                        column-gap: 40px;
+                        width:580px;
+                        overflow: hidden;
+                        .card3{
+                            display: none;
+                        }
+                    }
+                }
+                
 
                 .card3 {
                     display: none;
@@ -757,6 +996,55 @@ a{
         }
     
     }
+    .popup{
+        .popup-body{
+            max-width: 630px;
+            width: 100%;
+            height: 350px;
+            column-gap: 11px;
+            
+            .popup-image{
+                width:350px;
+                height: 350px;
+            }
+            .popup-info{
+                padding: 10px 9px 37px 0;
+
+                .popup-type{
+                    padding-top: 10px;
+                }
+
+                .popup-text{
+                    font-family: 'Georgia';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 110%;
+                    /* or 14px */
+
+                    letter-spacing: 0.06em;
+
+                    color: #000000;
+                    padding: 20px 0;
+                }
+                .popup-list{
+                    .popup-link::before {
+                        top: 7px;
+                        width: 4px;
+                        height: 4px;
+
+                    }
+
+                    .popup-link{
+                        padding: 0 0 5px 12px
+                    }
+                }
+                
+            }
+    
+    
+        }
+    }
     
     .wr-footer{
         height: 639px;
@@ -788,26 +1076,8 @@ a{
 
     }
 }
-@keyframes move-logo {
-    from{ right: -100%;}
-    to{ right:126px}
-}
-@keyframes move-left-carousel {
-    from{ right: 0}
-    to {right: 990px}
-}
-@keyframes move-right-carousel {
-    from{ left: 0}
-    to {left: 990px}
-}
-.move-left{
-    animation-name: move-left-carousel;
-    animation-duration: 1s;
-}
-.move-right{
-    animation-name: move-right-carousel;
-    animation-duration: 1s;
-}
+
+
 
 @media Screen and (max-width: 767.6px){
     body{
@@ -998,6 +1268,23 @@ a{
 
     }
     
+    @keyframes move-left-carousel {
+        from{ left: -270px}
+        to {left: -540px;}
+    }
+    @keyframes move-right-carousel {
+        from{ left: -270px}
+        to {left: 0}
+    }
+    
+    .move-right{
+        animation-name: move-right-carousel;
+        animation-duration: 0.5s;
+    }
+    .move-left{
+        animation-name: move-left-carousel;
+        animation-duration: 0.5s;
+    }
     .wr-pets{
         display: flex;
         flex-direction: column;
@@ -1037,7 +1324,7 @@ a{
                 justify-content:flex-start;
                 position: static;
                 padding: 0;
-                
+                overflow: visible;
                 .card1{
                     margin-bottom: 20px;
                 }
@@ -1047,6 +1334,16 @@ a{
                 }
                 .card2 {
                     display: none;
+                }
+                .carousel{
+                    left: -270px;
+
+                    .carousel-set{
+                        column-gap: 0;
+                        width:270px;
+                        overflow: hidden;
+                    }
+
                 }
             }
         }
@@ -1167,6 +1464,66 @@ a{
         
     }
     
+}
+
+.popup{
+    .popup-body{
+        max-width: 240px;
+        width: 100%;
+        height: 341px;
+        column-gap: 0px;
+   
+        .popup-close{
+            top: -52px;
+            right: -29px;
+        }
+        .popup-image{
+            display: none;
+        }
+        .popup-info{
+            padding: 10px;
+            .popup-title{
+                text-align: center;
+            }
+            .popup-type-container{
+                padding: 0 34px;
+                .popup-type{
+                    padding-top: 10px;
+                    text-align: center;
+                }
+            }
+            
+
+            .popup-text{
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 110%;
+                /* or 14px */
+
+                letter-spacing: 0.06em;
+
+                color: #000000;
+                padding: 20px 0 24px 0;
+            }
+            .popup-list{
+                .popup-link::before {
+                    top: 7px;
+                    width: 4px;
+                    height: 4px;
+
+                }
+
+                .popup-link{
+                    padding: 0 0 5px 12px
+                }
+            }
+            
+        }
+
+
+    }
 }
 .wr-footer{
     height: 809px;
