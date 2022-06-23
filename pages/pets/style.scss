@@ -98,6 +98,10 @@ body{
     margin: 0 auto;
     background-color: $color-cream;
 }
+.lock{
+    overflow: hidden;
+     }
+
 h1{
     font-family: 'Georgia';
 font-style: normal;
@@ -375,8 +379,182 @@ h5{
     
 }
  
+.popup{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width:100%;
+    height: 100%;
+    background: rgba(41, 41, 41, 0.6);;
+    .popup-shadow{
+        position: absolute;
+        display: none;
+        width:100%;
+        height: 5000px;
+        top: -500px;
+        background: rgba(41, 41, 41, 0.6);
+        z-index: 1;
+        cursor: pointer;
+    }
+    .popup-shadow-active{     
+        display: block;       
+    }
+    .popup-body{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: start;
+        column-gap: 29px;
+        max-width: 900px;
+        width: 100%;
+        height: 500px;
+        //left: 0px;
+        //top: 52px;
+        background: #FAFAFA;
+        border-radius: 9px;
+        //margin: 50px auto;
+        /* card-hover */
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+        z-index: 2;
+        .popup-close{
+            position: absolute;
+            top: -52px;
+            right: -40px;
+            width: 52px;
+            height: 52px;
+            box-sizing: border-box;
+            width:52px;
+            height: 52px;
 
+            box-sizing: border-box;
+            &:hover{
+                cursor:pointer;
 
+            }
+            img{
+                
+                box-sizing: border-box;
+
+            }
+
+        }
+        .popup-image{
+            height: 500px;
+            width: 500px;
+            border-radius: 9px 0px 0px 9px;
+            position: relative;
+            left:0;
+
+           img{
+               width: auto;
+               height: 100%;
+               position: relative;
+               left:0;
+               
+           }
+        }
+        .popup-info{
+            height: 100%;
+            width: 351px;
+            padding: 50px 20px 88px 0;
+
+            .popup-title{
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 35px;
+                line-height: 130%;
+                /* or 45px */
+
+                letter-spacing: 0.06em;
+
+                color: #000000;
+            }
+            .popup-type{
+                display: inline-block;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                /* identical to box height, or 23px */
+
+                letter-spacing: 0.06em;
+
+                color: #000000;
+                padding-top: 10px;
+               
+
+            }
+            .popup-text{
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 110%;
+                /* or 17px */
+
+                letter-spacing: 0.06em;
+
+                color: #000000;
+                padding: 40px 0;
+            }
+            .popup-list{
+                
+                .popup-link::before {
+                    content: " ";
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 50%;
+                    background-color: #f1cdb3;
+                    box-sizing: border-box;
+                }
+                .popup-link{
+                    position: relative;
+                    font-family: 'Georgia';
+                    font-weight: 600;
+                    font-size: 15px;
+                    line-height: 110%;
+                    font-style: normal;
+                    /* identical to box height, or 17px */
+                    
+                    letter-spacing: 0.06em;
+                    
+                    color: #000000;
+                    padding: 0  0 10px 12px;
+                    list-style: none;
+
+                    
+                    span{
+                        font-family: 'Georgia';
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 110%;
+                        font-style: normal;
+                        /* identical to box height, or 17px */
+                        
+                        letter-spacing: 0.06em;
+                        
+                        color: #000000;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+}
+.popup-active{
+    display:block;
+}
 .wr-footer{
     height: 350px;
     background: $color-gradient;
@@ -509,9 +687,57 @@ a{
 
     }
     
+
+    
+    .popup{
+        .popup-body{
+            max-width: 630px;
+            width: 100%;
+            height: 350px;
+            column-gap: 11px;
+            
+            .popup-image{
+                width:350px;
+                height: 350px;
+            }
+            .popup-info{
+                padding: 10px 9px 37px 0;
+
+                .popup-type{
+                    padding-top: 10px;
+                }
+
+                .popup-text{
+                    font-family: 'Georgia';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 110%;
+                    /* or 14px */
+
+                    letter-spacing: 0.06em;
+
+                    color: #000000;
+                    padding: 20px 0;
+                }
+                .popup-list{
+                    .popup-link::before {
+                        top: 7px;
+                        width: 4px;
+                        height: 4px;
+
+                    }
+
+                    .popup-link{
+                        padding: 0 0 5px 12px
+                    }
+                }
+                
+            }
     
     
-    
+        }
+    }
     
     .wr-footer{
         height: 639px;
@@ -571,11 +797,13 @@ a{
 
     .shadow{
         width: 100%;
-        height: 823px;
+        height: 1000px;
         position: absolute;
+        display: none;
 
     }
     .shadow-active{
+        display:block;
         background: rgba(41, 41, 41, 0.6);     
     }
     .wr-header{
@@ -726,6 +954,68 @@ a{
         }
 
     }
+    .popup{
+        .popup-body{
+            max-width: 240px;
+            width: 100%;
+            min-height: 341px;
+            max-height: 400px;
+            column-gap: 0px;
+    
+            .popup-close{
+                top: -52px;
+                right: -29px;
+            }
+            .popup-image{
+                display: none;
+            }
+            .popup-info{
+                padding: 10px;
+                .popup-title{
+                    text-align: center;
+                }
+                .popup-type-container{
+                    text-align: center;
+                    align-self: center;
+                    .popup-type{
+                        padding-top: 10px;
+                        text-align: center;
+                    }
+                }
+                
+
+                .popup-text{
+                    font-family: 'Georgia';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 110%;
+                    /* or 14px */
+
+                    letter-spacing: 0.06em;
+
+                    color: #000000;
+                    padding: 20px 0 24px 0;
+                }
+                .popup-list{
+                    .popup-link::before {
+                        top: 7px;
+                        width: 4px;
+                        height: 4px;
+
+                    }
+
+                    .popup-link{
+                        padding: 0 0 5px 12px
+                    }
+                }
+                
+            }
+
+
+        }
+    }
+    
     .wr-footer{
         height: 809px;
         padding: 30px 3% 0;

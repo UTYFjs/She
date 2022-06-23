@@ -41,7 +41,7 @@ for(let select of menuAllLink){
 /*------ carousel*/
 const petsInfo = [
   {
-    "id": "pet_1",
+    "id": "1",
     "name": "Katrine",
     "img": "../../assets/images/pets-katrine.png",
     "type": "Cat",
@@ -53,7 +53,7 @@ const petsInfo = [
     "parasites": ["none"]
   },
     {
-      "id": "pet_2",
+      "id": "2",
       "name": "Jennifer",
       "img": "../../assets/images/pets-jennifer.png",
       "type": "Dog",
@@ -65,7 +65,7 @@ const petsInfo = [
       "parasites": ["none"]
     },
     {
-      "id": "pet_3",
+      "id": "3",
       "name": "Woody",
       "img": "../../assets/images/pets-woody.png",
       "type": "Dog",
@@ -77,9 +77,9 @@ const petsInfo = [
       "parasites": ["none"]
     },
     {
-      "id": "pet_4",
+      "id": "4",
       "name": "Sophia",
-      "img": "../../assets/images/pets-sophie.png",
+      "img": "../../assets/images/pets-Sophie.png",
       "type": "Dog",
       "breed": "Shih tzu",
       "description": "Sophia here and I'm looking for my forever home to live out the best years of my life. I am full of energy. Everyday I'm learning new things, like how to walk on a leash, go potty outside, bark and play with toys and I still need some practice.",
@@ -89,7 +89,7 @@ const petsInfo = [
       "parasites": ["none"]
     },
     {
-      "id": "pet_5",
+      "id": "5",
       "name": "Timmy",
       "img": "../../assets/images/pets-timmy.png",
       "type": "Cat",
@@ -101,7 +101,7 @@ const petsInfo = [
       "parasites": ["none"]
     },
     {
-      "id": "pet_6",
+      "id": "6",
       "name": "Charly",
       "img": "../../assets/images/pets-charly.png",
       "type": "Dog",
@@ -113,7 +113,7 @@ const petsInfo = [
       "parasites": ["lice", "fleas"]
     },
     {
-      "id": "pet_7",
+      "id": "7",
       "name": "Scarlett",
       "img": "../../assets/images/pets-scarlet.png",
       "type": "Dog",
@@ -127,7 +127,7 @@ const petsInfo = [
     
     
     {
-      "id": "pet_8",
+      "id": "8",
       "name": "Freddie",
       "img": "../../assets/images/pets-freddie.png",
       "type": "Cat",
@@ -148,49 +148,26 @@ const itemLeft = document.querySelector('#carousel-left');
 const itemRight = document.querySelector('#carousel-right');
 const itemActive = document.querySelector('#carousel-active');
 
-const createCardTemplate = () =>{
-  const card1 = document.createElement('div'); // создаем элемент
-  card1.classList.add('card'); // add class
-  card1.innerText = Math.floor(Math.random()*8); // add text generated random from 0 to 8 and floor number to integer
-  return card1;
-}
 
 /// цикл не повторяющийся
 
 function getRandomArr(){
   let randomArr=[];
   
-
-/*
-  let cardActive1 = itemActive.querySelector('.card1');
-  let strId1 = cardActive1.getAttribute('class');
-  console.log(strId1[strId1.length]);
-  randomArr.push(strId1[strId1.length]);
-  let cardActive2 = itemActive.querySelector('.card2'); ///код не работает
-  let strId2 = cardActive2.getAttribute('id');
-  randomArr.push(strId2[strId1.length]);
-  let cardActive3 = itemActive.querySelector('.card3');
-  let strId3 = cardActive3.getAttribute('id');
-  randomArr.push(strId3[strId1.length]);
-*/
-  /*
-  for( let i=0;i< itemActive.childNodes.length; i++) {
-    let a = itemActive.childNodes[i];
-    let strId = a.getAtribute(id);
-    randomArr.push(strId[5]);
-  }*/
   for(let i=0; randomArr.length<3;i++){
     let a= Math.floor(Math.random()*8);
     if(!(randomArr.includes(a, 0))){randomArr.unshift(a); // массив работает
     }
   }
+
   return randomArr;
 }
 
 function createCardTemplate2(i){
   const card = document.createElement('div'); // создаем элемент
   card.classList.add('card'); // add class
-  card.setAttribute('id', petsInfo[i]['id']);
+  card.classList.add('active-card');
+  card.setAttribute('data-id', petsInfo[i]['id']);
   const imgPet = `<img class="png" src="${petsInfo[i]['img']}" alt="${petsInfo[i]['type']}">`;
   const namePet = `<p class="card-title">${petsInfo[i]['name']}</p>`;
   const buttonPet = `<div class="wrapbutton"><button class="button-card" >Learn more</button></div>`;
@@ -200,31 +177,8 @@ function createCardTemplate2(i){
   return card;
 }
 
+console.log('добрый человек, не вали слишком сильно, сам знаю что не идеал работа, но я до марта месяца вообще не знал даже что такое css :)');
 
-///  заполнение карточки
-/*
-  const imgPet = `<img class="png" src="${petsInfo[randomNum]['img']}" alt="${petsInfo[randomNum]['type']}">`;
-  const namePet = `<p class="card-title">${petsInfo[randomNum]['name']}</p>`;
-  const buttonPet = `<div class="wrapbutton"><button class="button-card" >Learn more</button></div>`;
-  card.insertAdjacentHTML('beforeend', imgPet);
-  card.insertAdjacentHTML('beforeend', namePet);
-  card.insertAdjacentHTML('beforeend', buttonPet);
-  return card;
-*/
-/*const createCardTemplate = () => {
-  let random = Math.floor(Math.random() * 8);
-  const card = document.createElement('div');
-  //card.classList.add('carousel__item');
-  card.classList.add('card');
-  card.setAttribute('id', petsInfo[randomNum]['id']);
-  const imgPet = `<img class="card__photo" src="${petsInfo[randomNum]['img']}" alt="${petsInfo[randomNum]['type']}">`;
-  const namePet = `<div class="card__name">${petsInfo[randomNum]['name']}</div>`;
-  const btnMore = `<div class="card__btn button button-w">Learn more</div>`;
-  card.insertAdjacentHTML('beforeend', imgPet);
-  card.insertAdjacentHTML('beforeend', namePet);
-  card.insertAdjacentHTML('beforeend', btnMore);
-  return card;
-};*/
 
 const moveRight = () => { 
   carousel.classList.add('move-right');
@@ -255,8 +209,7 @@ carousel.addEventListener('animationend', animationEvent=> {
       const card = createCardTemplate2(a);
       itemRight.appendChild(card);
     }
-    
-    
+        
   } else{
     carousel.classList.remove('move-right');
     const LeftItem=itemLeft.innerHTML;
@@ -269,8 +222,89 @@ carousel.addEventListener('animationend', animationEvent=> {
       itemLeft.appendChild(card);
     }
   }
+
+                                   ///
 })
 
+
+
+
+
+//  --------------------popup
+
+//popupFunc()-------
+
+const cardOpen = document.querySelectorAll('.card');
+let popup = document.querySelector('.popup');
+
+const popupShadow = document.querySelector('.popup-shadow');
+let popupBody = document.querySelector('.popup-body');
+
+
+
+
+const exitPopup = () => {
+  document.body.classList.remove('lock');
+  popup.classList.remove('popup-active');
+  popupShadow.classList.remove('popup-shadow-active');
+};
+
+cardOpen.forEach((item, i) => {
+  item.addEventListener('click', f => {
+
+    setPopupContent(item);
+    console.log(popup);
+    popup.classList.add('popup-active');
+    document.body.classList.add('lock');
+    popupShadow.classList.add('popup-shadow-active');
+    const popupClose = document.querySelector('.popup-close');
+popupClose.addEventListener('click', exitPopup);
+popupShadow.addEventListener('click', exitPopup);
+  });
+});
+const popupClose = document.querySelector('.popup-close');
+
+popupClose.addEventListener('click', exitPopup);
+popupShadow.addEventListener('click', exitPopup);
+
+const popupShadowActive = document.querySelector('.popup-shadow-active');
+const hoverCloseOn = () => {
+  popupClose.classList.add('popup-close-hover');
+}
+const hoverCloseOff = () => {
+  popupClose.classList.remove('popup-close-hover');
+}
+popupShadowActive.addEventListener("mouseover", hoverCloseOn);
+popupShadowActive.addEventListener('mouseout', hoverCloseOff);
+
+
+
+function setPopupContent (item) {
+  let i = (item.dataset.id-1);
+  popupBody.innerHTML = "";
+  const newPopup = `
+  <div class="popup-close"></div>
+  <div class="popup-image"><img src="${petsInfo[i]['img']}" alt="${petsInfo[i]['type']}"></div>
+  <div class="popup-info">
+  <h3 class="popup-title" data-popup="name">${petsInfo[i]['name']}</h3>
+  <div class="popup-type-container">
+            <div class="popup-type" data-popup="type">${petsInfo[i]['type']}</div>
+      <div class="popup-type"> - </div>
+      <div class="popup-type" data-popup="breed">${petsInfo[i]['breed']}</div>
+        </div>        
+  <div class="popup-text" data-popup="description">${petsInfo[i]['description']}</div>
+  <ul class="popup-list">
+    <li class="popup-link">Age: <span data-popup="age">${petsInfo[i]['age']}</span></li>
+    <li class="popup-link">Inoculations: <span data-popup="inoculations">${petsInfo[i]['inoculations']}</span></li>
+    <li class="popup-link">Diseases: <span data-popup="diseases">${petsInfo[i]['diseases']}</span></li>
+    <li class="popup-link">Parasites: <span data-popup="parasites">${petsInfo[i]['parasites']}</span></li>
+  </ul>
+  </div>`
+  
+popupBody.insertAdjacentHTML('beforeend', newPopup);
+
+
+}
 
 
 
